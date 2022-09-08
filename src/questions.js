@@ -1,4 +1,4 @@
-const questions = [
+const infoGeneral = [
     {
         type: 'list',
         name: 'proceed',
@@ -136,4 +136,4 @@ const questions = [
     }
 ]
 
-module.exports = questions;
+module.exports = infoGeneral;

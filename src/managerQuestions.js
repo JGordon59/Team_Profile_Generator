@@ -1,10 +1,8 @@
-// questions to start the program with
-const managerQuestions = [
+const infoManager = [
     {
         type: 'input',
         name: `managerName`,
         message: `Your Manager, what is their name?`,
-        // validating that a name was given
         validate: managerName => {
             if (typeof managerName == 'string') {
                 return true;
@@ -18,7 +16,6 @@ const managerQuestions = [
         type: 'input',
         name: `managerId`,
         message: `What is your Manager's employee ID?`,
-        // validating that a number was given
         validate: managerId => {
             if (/^\d+$/.test(managerId)) {
                 return true;
@@ -32,7 +29,6 @@ const managerQuestions = [
         type: 'input',
         name: `managerEmail`,
         message: `Please provide your Manager's email address?`,
-        // validating that an email was given
         validate: managerEmail => {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(managerEmail)) {
                 return true;
@@ -46,7 +42,6 @@ const managerQuestions = [
         type: 'input',
         name: `managerOffice`,
         message: `What is your Manager's office number?`,
-        // validating that a number was given
         validate: managerOffice => {
             if (/^\d+$/.test(managerOffice)) {
                 return true;
@@ -58,4 +53,4 @@ const managerQuestions = [
     }
 ]
 
-module.exports = managerQuestions;
+module.exports = infoManager;

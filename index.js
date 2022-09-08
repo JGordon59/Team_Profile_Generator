@@ -1,30 +1,23 @@
-// Including packages needed for this application
 const inquirer = require('inquirer');
-const Manager = require('./lib/manager.js');
-const Engineer = require('./lib/engineer.js');
-const Intern = require('./lib/intern.js');
 const startHtml = require('./src/startHtml.js');
 const endHtml = require('./src/endHtml.js');
-const questions = require('./src/questions.js');
-const managerQuestions = require('./src/managerQuestions.js');
+const infoGeneral = require('./src/questions.js');
+const infoManager = require('./src/managerQuestions.js');
+const ManagerNew = require('./lib/manager.js');
+const EngineerNew = require('./lib/engineer.js');
+const InternNew = require('./lib/intern.js');
 
 let getMembers = () => {
     inquirer
-        .prompt(questions)
+        .prompt(infoGeneral)
         .then((response) => {
-            if (response.proceed == 'Add an Engineer') {
-                // declaring a new Engineer based on the user input
-                let newEngineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub);
-                // generating a new html card for that Engineer
+            if (response.proceed == 'Add a new Engineer to your team') {
+                let newEngineer = new EngineerNew(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub);
                 newEngineer.generateCard();
-                // running the prompt again
                 getMembers();
-            } else if (response.proceed == 'Add an Intern') {
-                // declaring a new Intern based on the user input
-                let newIntern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool);
-                // generating a new html card for that Intern
+            } else if (response.proceed == 'Add a new Intern to your team') {
+                let newIntern = new InternNew(response.internName, response.internId, response.internEmail, response.internSchool);
                 newIntern.generateCard();
-                // running the prompt again
                 getMembers();
             } else {
                 endHtml();
@@ -34,12 +27,10 @@ let getMembers = () => {
 
 let init = () => {
     inquirer
-        .prompt(managerQuestions)
+        .prompt(infoManager)
         .then((managerResponse) => {
             getMembers();
-            // declaring a new Manager based on the user input
-            let newManager = new Manager(managerResponse.managerName, managerResponse.managerId, managerResponse.managerEmail, managerResponse.managerOffice);
-            // generating a new html card for that Manager and starting index.html
+            let newManager = new ManagerNew(managerResponse.managerName, managerResponse.managerId, managerResponse.managerEmail, managerResponse.managerOffice);
             newManager.generateCard();
             startHtml();
         })

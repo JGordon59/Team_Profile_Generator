@@ -1,7 +1,5 @@
-// Including packages needed for this application
 const fs = require('fs');
 
-// starter function for a basic html header
 const startHtml = () => {
     fs.appendFile('./dist/index.html',
         `<!DOCTYPE html>
