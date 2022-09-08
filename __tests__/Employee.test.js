@@ -1,11 +1,11 @@
 const Employee = require('../lib/employee');
 
 describe('Properties', () => {
-    it('Employee name should always be a string', () => {
+    it('Employee name is required to be in a string format', () => {
         expect(typeof new Employee('Jonathan', '28', 'test@mail.com').getName()).toBe('string');
     });
 
-    it('Employee ID should always be a number', () => {
+    it('Employee ID is required to be in a numerical format', () => {
         expect(new Employee('Jonathan', '28', 'test@mail.com').getId()).toMatch(/^\d+$/);
     });
 
@@ -15,15 +15,15 @@ describe('Properties', () => {
 });
 
 describe('Methods', () => {
-    it('getName() should return the name', () => {
+    it('Inputting getName() will return the name in the string', () => {
         expect(new Employee('Jonathan', '28', 'test@mail.com').getName()).toBe('Jonathan');
     });
 
-    it('getId should return the ID', () => {
+    it('Inputting getId() will return the ID value', () => {
         expect(new Employee('Jonathan', '28', 'test@mail.com').getId()).toBe('28');
     });
 
-    it('getEmail should return the ID', () => {
+    it('Inputting getEmail() will return the valid email', () => {
         expect(new Employee('Jonathan', '28', 'test@mail.com').getEmail()).toBe('test@mail.com');
     });
 })

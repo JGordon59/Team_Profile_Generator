@@ -2,19 +2,19 @@ const Employee = require('../lib/employee');
 const Intern = require('../lib/intern');
 
 describe('Properties', () => {
-    it('Intern name should always be a string', () => {
+    it('Intern name is required to be in a string format', () => {
         expect(typeof new Intern('Jonathan', '28', 'test@mail.com', 'University of Central Florida').getName()).toBe('string');
     });
 
-    it('Intern ID should always be a number', () => {
+    it('Intern ID is required to be in a numerical format', () => {
         expect(new Intern('Jonathan', '28', 'test@mail.com', 'University of Central Florida').getId()).toMatch(/^\d+$/);
     });
 
-    it('Intern email should always be a valid email', () => {
+    it('An intern is required to have a valid email', () => {
         expect(new Intern('Jonathan', '28', 'test@mail.com', 'University of Central Florida').getEmail()).toMatch(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
     });
 
-    it('Intern school should always be a string', () => {
+    it('Intern school is required to be in a string format', () => {
         expect(typeof new Intern('Jonathan', '28', 'test@mail.com', 'University of Central Florida').getSchool()).toBe('string');
     });
 
@@ -24,7 +24,7 @@ describe('Properties', () => {
 });
 
 describe('Methods', () => {
-    it('getName() should return the name', () => {
+    it('getName() will return the name in the string', () => {
         expect(new Intern('Jonathan', '28', 'test@mail.com', 'University of Central Florida').getName()).toBe('Jonathan');
     });
 

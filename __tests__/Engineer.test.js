@@ -2,11 +2,11 @@ const Employee = require('../lib/employee');
 const Engineer = require('../lib/engineer');
 
 describe('Properties', () => {
-    it('Engineer name should always be a string', () => {
+    it('Engineer name is required to be in a string format', () => {
         expect(typeof new Engineer('Jonathan', '28', 'test@mail.com', 'JGordon59').getName()).toBe('string');
     });
 
-    it('Engineer ID should always be a number', () => {
+    it('Engineer ID is required to be in a numerical format', () => {
         expect(new Engineer('Jonathan', '28', 'test@mail.com', 'JGordon59').getId()).toMatch(/^\d+$/);
     });
 
@@ -14,7 +14,7 @@ describe('Properties', () => {
         expect(new Engineer('Jonathan', '28', 'test@mail.com', 'JGordon59').getEmail()).toMatch(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
     });
 
-    it('Engineer github should always be a string', () => {
+    it('Engineer github is required to be in a string format', () => {
         expect(typeof new Engineer('Jonathan', '28', 'test@mail.com', 'JGordon59').getGithub()).toBe('string');
     });
 
@@ -24,7 +24,7 @@ describe('Properties', () => {
 });
 
 describe('Methods', () => {
-    it('getName() should return the name', () => {
+    it('getName() will return the name in the string', () => {
         expect(new Engineer('Jonathan', '28', 'test@mail.com', 'JGordon59').getName()).toBe('Jonathan');
     });
 
